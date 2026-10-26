@@ -18,7 +18,7 @@ _
 |---------------|-----------------|-------------------|--------------------|
 | Jesse Homan   |  oofthegrate    |                   |  Afternoon         |
 | Grace Kosatka | grace-kosatka   |                   |  IDK               |
-|               |                 |                   |                    |
+| Ally Schwarz  |  ae-schwarz     |                   |  IDK               |
 |               |                 |                   |                    |
 
 ### Scrum Master
