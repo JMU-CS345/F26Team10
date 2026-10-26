@@ -14,12 +14,12 @@ _
 
 ### Members
 
-| Name | GitHub username | Preferred contact | Usual availability |
-|------|-----------------|-------------------|--------------------|
-|      |                 |                   |                    |
-|      |                 |                   |                    |
-|      |                 |                   |                    |
-|      |                 |                   |                    |
+| Name          | GitHub username | Preferred contact | Usual availability |
+|---------------|-----------------|-------------------|--------------------|
+| Jesse Homan   |  oofthegrate    |  (804) 543-1632   |  Afternoon         |
+|               |                 |                   |                    |
+|               |                 |                   |                    |
+|               |                 |                   |                    |
 
 ### Scrum Master
 
