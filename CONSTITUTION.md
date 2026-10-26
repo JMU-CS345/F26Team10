@@ -23,7 +23,7 @@ _
 
 ### Scrum Master
 
-**Sprint 1 Scrum Master:** _
+**Sprint 1 Scrum Master:** _ Jesse Homan
 
 **Does the role rotate?** *(e.g., rotates each sprint in the order listed above; or one person for the whole project)*
 
@@ -37,7 +37,7 @@ _
 
 ### Other Responsibilities
 
-Who is responsible for maintaining the project board / backlog in good order? *(Scrum Master?)*
+Who is responsible for maintaining the project board / backlog in good order? Jesse Homan
 
 Who is responsible for deploying the main branch to production to update GitHub pages?
 
@@ -45,7 +45,7 @@ Who is responsible for deploying the main branch to production to update GitHub 
 
 *(How do we decide things: consensus, majority vote, Scrum Master decides? What happens if we are deadlocked?)*
 
-_
+_ We will decide based on a majority vote
 
 ---
 
