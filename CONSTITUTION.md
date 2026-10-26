@@ -27,7 +27,7 @@ _
 
 **Does the role rotate?** *(e.g., rotates each sprint in the order listed above; or one person for the whole project)*
 
-_
+No
 
 ### Product Owner
 
