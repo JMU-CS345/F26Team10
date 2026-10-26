@@ -17,7 +17,7 @@ _
 | Name          | GitHub username | Preferred contact | Usual availability |
 |---------------|-----------------|-------------------|--------------------|
 | Jesse Homan   |  oofthegrate    |                   |  Afternoon         |
-|               |                 |                   |                    |
+| Grace Kosatka | grace-kosatka   |                   |  IDK               |
 |               |                 |                   |                    |
 |               |                 |                   |                    |
 
