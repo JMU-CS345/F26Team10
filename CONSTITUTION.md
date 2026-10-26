@@ -33,7 +33,7 @@ No
 
 *Choose one team member who will interact with the instructor (stakeholder) to clarify and prioritize stories, and to collect new ones.*
 
-_
+Jesse Homan
 
 ### Other Responsibilities
 
