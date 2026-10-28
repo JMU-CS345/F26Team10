@@ -6,9 +6,9 @@
 
 ## 1. Team and Roles
 
-### Team Number
+### Team Number: 10
 
-### Team Name
+### Team Name: Team 10
 
 _
 
@@ -39,13 +39,13 @@ Jesse Homan
 
 Who is responsible for maintaining the project board / backlog in good order? Jesse Homan
 
-Who is responsible for deploying the main branch to production to update GitHub pages?
+Who is responsible for deploying the main branch to production to update GitHub pages? Grace Koska
 
 ### Decision Making
 
-*(How do we decide things: consensus, majority vote, Scrum Master decides? What happens if we are deadlocked?)*
+We will decide based on majority vote.
 
-_ We will decide based on a majority vote
+_
 
 ---
 
@@ -94,9 +94,9 @@ _
 
 ### Estimation
 
-**Method:** *(story points, t-shirt sizes, hours)*
+**Method:** Story points
 
-**Scale:** *(e.g., 1, 2, 3, 5, 8, 13)*
+**Scale:** 1, 2, 3, 5, 8, 13, ?
 
 _
 
@@ -114,14 +114,15 @@ _
 
 ### Primary Channel
 
-**Channel:** *(Discord, Slack, GroupMe, ...)*
+**Channel:** Text
 
-**Expected response time:** *(e.g., within 12 hours on weekdays)*
+**Expected response time:** within 24 hours
 
 ### What Goes Where
 
 *(What is discussed in the chat channel vs. in GitHub issues vs. in PR comments?)*
-
+Setup meetings and general discussions will be done over text. Bugs and requirements will be address in GitHub issues
+Feedback and code suggestions are put in PR (Pull Request) comments.
 _
 
 ### Reporting Blockers or Falling Behind
@@ -166,9 +167,9 @@ _
 
 ### Pull Requests
 
-**Maximum size:** *(e.g., aim for under 300 changed lines)*
+**Maximum size:** 300 lines
 
-**Description template:** *(e.g., What / Why / How to test / Screenshot)*
+**Description template:** What / Why / How to test / Screenshot
 
 **Linking issues:** *(e.g., every PR includes `Closes #N`)*
 
@@ -200,11 +201,11 @@ _
 
 | Kind | Convention | Example |
 |------|------------|---------|
-| Variables and functions | | |
-| Classes | | |
-| Constants | | |
-| Files | | |
-| Test files | | |
+| Variables and functions | camelCase | hitPoints |
+| Classes | PascalCase | DungeonEnemy |
+| Constants | ALL_CAPS_SNAKE_CASE| MAX_LIFE |
+| Files | snake_case | dungeon_sprites.png|
+| Test files | test + snake_case | test_dungeon_sprites.js |
 
 ### Formatting
 
@@ -248,7 +249,7 @@ _
 
 ### Assets
 
-**File naming:** *(e.g., all lowercase, hyphens, no spaces)*
+**File naming:** allow lowercase, separated by underscores (file_example.txt)
 
 **Licensing and attribution:** *(Where do we record the source and license of art, sound, and fonts we did not make?)*
 
@@ -260,7 +261,7 @@ _
 
 **Test framework:** Jasmine
 
-**Where tests live:** _
+**Where tests live:** Test folder
 
 **What must have tests:** *(e.g., all model code; every bug fix gets a test that reproduces it; combat and puzzle rules)*
 
@@ -284,7 +285,7 @@ _
 
 ## 7. Deployment
 
-**Where the game is deployed:** GitHub Pages, URL here
+**Where the game is deployed:** GitHub Pages
 
 **What triggers a deploy:** *(e.g., a release PR from `main` into `production`, opened by the Scrum Master after each sprint review)*
 
@@ -294,19 +295,19 @@ _
 
 ## 8. AI Tool Usage
 
-**Allowed tools:** _
+**Allowed tools:** _ ChatGPT, CoPilot, Claude
 
-**Allowed uses:** *(e.g., code generation, tests, documentation, review)*
+**Allowed uses:** Code generation. 
 
 _
 
-**Not allowed:** _
+**Not allowed:** _ Test cases. Documentation.
 
 **Disclosure:** *(e.g., note AI assistance in the PR description)*
 
 _
 
-**Responsibility:** *(e.g., whoever submits AI-generated code must understand it and is accountable for it)*
+**Responsibility:** Whoever submits AI-generated code must understand it and is accountable for it. Also clarify in comments that it is AI generated.
 
 _
 
@@ -330,10 +331,10 @@ _
 
 *(What steps do we follow when there is a disagreement or a problem with a teammate?)*
 
-1. *(e.g., talk to the person directly)*
-2. *(e.g., raise it at the retrospective)*
-3. *(e.g., Scrum Master mediates)*
-4. *(e.g., escalate to the instructor)*
+1. talk to the person directly
+2. raise it at the retrospective
+3. Scrum Master mediates
+4. escalate to the instructor
 
 ### Missed Commitments
 
@@ -344,6 +345,7 @@ _
 ### Amending This Constitution
 
 *(How can this document be changed? e.g., proposed by PR, approved by team vote at a retrospective.)*
+Approved by team vote at retrospective.
 
 _
 
