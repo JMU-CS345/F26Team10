@@ -349,6 +349,6 @@ _
 | GitHub name    | Signature (type your name) | Date |
 |----------------|----------------------------|------|
 | grace_kosatka  |  Grace Kosatka             | 10/28|
-|                |                            |      |
+| ae-schwarz     |  Ally Schwarz              | 10/28|
 |                |                            |      |
 |                |                            |      |
