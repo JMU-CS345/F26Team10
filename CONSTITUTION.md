@@ -23,7 +23,9 @@ _
 
 ### Scrum Master
 
-**Sprint 1 Scrum Master:** _ Jesse Homan
+**Sprint 1 Scrum Master:** 
+
+Jesse Homan
 
 **Does the role rotate?** *(e.g., rotates each sprint in the order listed above; or one person for the whole project)*
 
@@ -39,13 +41,11 @@ Jesse Homan
 
 Who is responsible for maintaining the project board / backlog in good order? Jesse Homan
 
-Who is responsible for deploying the main branch to production to update GitHub pages? Grace Koska
+Who is responsible for deploying the main branch to production to update GitHub pages? Grace Kosatka
 
 ### Decision Making
 
 We will decide based on majority vote.
-
-_
 
 ---
 
@@ -77,34 +77,33 @@ _
 
 *A backlog item may be pulled into a sprint only when:*
 
-- [ ] it is written as a user story
-- [ ] it has acceptance criteria
-- [ ] it has an estimate
+- [x] it is written as a user story
+- [x] it has acceptance criteria
+- [x] it has an estimate
 
 ### Definition of Done
 
 *An item is done only when:*
 
-- [ ] code is reviewed and approved by at least one teammate
-- [ ] all tests pass in CI
-- [ ] merged to `main`
-- [ ] works in the deployed build
-- [ ] the issue is closed
-- [ ]
+- [x] code is reviewed and approved by at least one teammate
+- [x] all tests pass in CI
+- [x] merged to `main`
+- [x] works in the deployed build
+- [x] the issue is closed
 
 ### Estimation
 
 **Method:** Story points
 
-**Scale:** 1, 2, 3, 5, 8, 13, ?
+**Scale:** 1, 2, 3, 5, 8, 13, 21...
 
 _
 
 ### Backlog and Board
 
-**Where the backlog lives:** *(e.g., GitHub Projects board, link here)*
+**Where the backlog lives:** GitHub Projects board
 
-**Board columns:** *(e.g., To Do → In Progress → In Review → Done)*
+**Board columns:** To Do → In Progress → In Review → Done
 
 _
 
@@ -116,25 +115,22 @@ _
 
 **Channel:** Text
 
-**Expected response time:** within 24 hours
+**Expected response time:** Within 24 hours
 
 ### What Goes Where
 
-*(What is discussed in the chat channel vs. in GitHub issues vs. in PR comments?)*
 Setup meetings and general discussions will be done over text. Bugs and requirements will be address in GitHub issues
 Feedback and code suggestions are put in PR (Pull Request) comments.
 _
 
 ### Reporting Blockers or Falling Behind
 
-*(How and how early does a member tell the team they are stuck or behind?)*
-
+As soon as possible
 _
 
 ### Absences
 
-*(How much notice is required? How is the absent member's work covered?)*
-
+As soon as possible
 _
 
 ---
@@ -143,25 +139,26 @@ _
 
 ### Branch Naming
 
-**Format:** *(e.g., `type/issue-short-description`)*
+**Format:** `type/issue-short-description`
 
-**Allowed types:** *(e.g., `feature`, `fix`, `docs`, `refactor`, `test`, `chore`)*
+**Allowed types:** `feature`, `fix`, `docs`, `refactor`, `test`, `chore`
 
 **Examples:**
 
--
--
+- feature/user-login
+- fix/null-pointer-error
+- docs/update-readme
 
 ### Branch Protection on `main`
 
-- [ ] No direct pushes to `main`
-- [ ] Required approvals before merge: _
-- [ ] CI must pass before merge
-- [ ] Same protection on `production`
+- [x] No direct pushes to `main`
+- [x] Required approvals before merge: _
+- [x] CI must pass before merge
+- [x] Same protection on `production`
 
 ### Commit Messages
 
-*(Format and style, e.g., imperative mood: "Add rune puzzle validation". Do we follow Conventional Commits?)*
+Conventional Commit Messages
 
 _
 
@@ -171,25 +168,25 @@ _
 
 **Description template:** What / Why / How to test / Screenshot
 
-**Linking issues:** *(e.g., every PR includes `Closes #N`)*
+**Linking issues:** Every PR includes `Closes #N`
 
 _
 
 ### Code Review
 
-**Review turnaround:** *(e.g., within 24 hours of being requested)*
+**Review turnaround:** Within 48 hours
 
-**Who reviews what:** *(e.g., any teammate; or a rotating assignment)*
+**Who reviews what:** Any teamate
 
 _
 
 ### Merging
 
-**Merge style:** *(merge commit, squash and merge, or rebase and merge)*
+**Merge style:** merge commit
 
-**Who merges:** *(the author after approval, or the reviewer)*
+**Who merges:** The reviewer
 
-**After merge:** *(e.g., delete the branch)*
+**After merge:** Delete the branch
 
 _
 
@@ -209,49 +206,47 @@ _
 
 ### Formatting
 
-**Indentation:** *(2 spaces, 4 spaces, tabs)*
+**Indentation:** Tabs
 
-**Semicolons:** *(always / never)*
+**Semicolons:** Always
 
-**Quotes:** *(single / double)*
+**Quotes:** Single
 
-**Maximum line length:** _
+**Maximum line length:** Default
 
-**Tools:** *(e.g., Prettier and ESLint, with config files committed to the repo)*
+**Tools:** Prettier or ESLint, with config files committed to the repo
 
 _
 
 ### Project Structure
 
-*(Where does each kind of file live?)*
-
 ```
-src/
-  model/        (e.g., game logic, no p5 drawing calls)
-  view/         (e.g., drawing code)
-  controller/   (e.g., input handling)
+src/             
+  model/        game logic, no p5 drawing calls
+  view/         drawing code
+  controller/   input handling
 assets/
 spec/
 ```
 
 ### Architecture Rules
 
-*(e.g., game logic never calls p5 drawing functions directly, so it can be unit tested)*
+Game logic never calls p5 drawing functions directly, so it can be unit tested
 
 -
 -
 
 ### Comments and Documentation
 
-*(When are comments or JSDoc required?)*
+Never required but when applicable should be added
 
 _
 
 ### Assets
 
-**File naming:** allow lowercase, separated by underscores (file_example.txt)
+**File naming:** Allow lowercase, separated by underscores (file_example.txt)
 
-**Licensing and attribution:** *(Where do we record the source and license of art, sound, and fonts we did not make?)*
+**Licensing and attribution:** In the credits
 
 _
 
@@ -263,21 +258,21 @@ _
 
 **Where tests live:** Test folder
 
-**What must have tests:** *(e.g., all model code; every bug fix gets a test that reproduces it; combat and puzzle rules)*
+**What must have tests:** All model code
 
 _
 
 **Coverage expectations:** 90+%
 
-**Continuous integration:** *(What does GitHub Actions run on each PR?)*
+**Continuous integration:** Continuous Integration
 
 _
 
-**Rule for failing CI:** *(e.g., nothing merges while CI is red)*
+**Rule for failing CI:** Nothing merges while CI is red.
 
 _
 
-**Manual playtesting:** *(Who plays the build before each sprint review, and how are bugs reported?)*
+**Manual playtesting:** Anyone available plays the build before each sprint review, and bugs a added to GitHub
 
 _
 
@@ -287,15 +282,15 @@ _
 
 **Where the game is deployed:** GitHub Pages
 
-**What triggers a deploy:** *(e.g., a release PR from `main` into `production`, opened by the Scrum Master after each sprint review)*
+**What triggers a deploy:** A release PR from `main` into `production`, opened by the Scrum Master after each sprint review
 
-**Who checks the deployed build, and when:** _
+**Who checks the deployed build, and when:** Anyone when they are available (rotate who)
 
 ---
 
 ## 8. AI Tool Usage
 
-**Allowed tools:** _ ChatGPT, CoPilot, Claude
+**Allowed tools:** _ ChatGPT, CoPilot, Claude, Gemini
 
 **Allowed uses:** Code generation. 
 
@@ -303,7 +298,7 @@ _
 
 **Not allowed:** _ Test cases. Documentation.
 
-**Disclosure:** *(e.g., note AI assistance in the PR description)*
+**Disclosure:** Note AI assistance in the PR description
 
 _
 
@@ -317,19 +312,17 @@ _
 
 ### Expected Effort
 
-*(Hours per person per week.)*
+3 hours per person per week.
 
 _
 
 ### Fair Contribution
 
-*(What counts as contributing, and how is it tracked? e.g., PRs merged, reviews done, story points completed.)*
+Story Points
 
 _
 
 ### Conflict Resolution
-
-*(What steps do we follow when there is a disagreement or a problem with a teammate?)*
 
 1. talk to the person directly
 2. raise it at the retrospective
@@ -338,15 +331,13 @@ _
 
 ### Missed Commitments
 
-*(What happens when a member repeatedly misses commitments?)*
+Communicate with said group member.
 
 _
 
 ### Amending This Constitution
 
-*(How can this document be changed? e.g., proposed by PR, approved by team vote at a retrospective.)*
 Approved by team vote at retrospective.
-
 _
 
 ---
@@ -355,9 +346,9 @@ _
 
 *By signing, each member agrees to follow this constitution.*
 
-| GitHub name | Signature (type your name) | Date |
-|------|----------------------------|------|
-|      |                            |      |
-|      |                            |      |
-|      |                            |      |
-|      |                            |      |
+| GitHub name    | Signature (type your name) | Date |
+|----------------|----------------------------|------|
+| grace_kosatka  |  Grace Kosatka             | 10/28|
+|                |                            |      |
+|                |                            |      |
+|                |                            |      |
