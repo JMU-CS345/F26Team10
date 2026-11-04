@@ -1,29 +1,26 @@
+const mapSize = 800;
+const gridDivision = 50;
+
 function setup() {
-  createCanvas(800, 800);
-
+  createCanvas(mapSize, mapSize);
 }
 
-let playerX = 25;
-let playerY = 25;
 function draw() {
-    background(220);
-    ellipse(playerX,playerY,50, 50);
+  background(220);
+  drawGrid();
 }
 
-function keyPressed() {
-  if ((key === 'a' || key === 'A' || keyIsDown(LEFT_ARROW)) && playerX - 50 > 0) {
-    playerX -= 50;
+/* Iterates through the X and Y coords to create a line every 50 spaces */
+function drawGrid() {
+  stroke(1);
+
+  /* Vertical lines*/
+  for (let i = 0; i < mapSize + 1; i += gridDivision){
+    line(i, 0, i, mapSize);
   }
 
-  if ((key === 'd' || key === 'D' || keyIsDown(RIGHT_ARROW)) && playerX + 50 < 800) {
-    playerX += 50;
-  }
-
-  if ((key === 's' || key === 'S' || keyIsDown(DOWN_ARROW)) && playerY + 50 < 800) {
-    playerY += 50;
-  }
-  
-  if ((key === 'w' || key === 'W' || keyIsDown(UP_ARROW)) && playerY - 50 > 0) {
-    playerY -= 50;
+  /* Horizontal lines */
+  for (let i = 0; i < mapSize + 1; i += gridDivision){
+    line(0, i, mapSize, i);
   }
 }
