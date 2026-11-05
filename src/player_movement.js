@@ -1,7 +1,7 @@
 function keyPressed() {
   let movementKey = movementKeyPress(key);
 
-  if (direction !== undefined) {
+  if (movementKey !== undefined) {
     player.move(movementKey);
   }
 }
