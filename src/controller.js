@@ -7,9 +7,6 @@ class Player {
     }
 
     move(key) {
-        if (!this.checkCollision(key)) {
-            return;
-        }
         switch (key) {
             case 'a':
                 this.x -= gridDivision;
