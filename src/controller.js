@@ -39,10 +39,10 @@ class PlayerController {
             return this.playerX + gridDivision < mapSize;
 
         case 's':
-            return this.playerX + gridDivision < mapSize;
+            return this.playerY + gridDivision < mapSize;
 
         case 'w':
-            return this.playerX - gridDivision > 0;
+            return this.playerY - gridDivision > 0;
 
         default:
             return false;
