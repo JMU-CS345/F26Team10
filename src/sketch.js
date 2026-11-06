@@ -1,6 +1,7 @@
 const mapSize = 800;
 const gridDivision = 50;
 let button;
+let isRunning = false;
 
 function setup() {
   createCanvas(mapSize, mapSize);
@@ -8,19 +9,27 @@ function setup() {
 
   textSize(70);
   textAlign(CENTER, CENTER);
-  textFont('Dungeon Quest')
+  textFont('Dungeon')
   fill(0);
 
   text('MageQuest', width/2, height/2);
   button = createButton('PLAY');
   button.position(380, 450);
+  button.mouseClicked(startGame);
 }
 
-button.mousePressed(draw());
+
+function startGame() {
+  isRunning = true;
+  button.remove();
+}
 
 function draw() {
-  background(220);
-  drawGrid();
+  if (isRunning) {
+    background(220);
+    drawGrid();
+  }
+
 }
 
 /* Iterates through the X and Y coords to create a line every 50 spaces */
