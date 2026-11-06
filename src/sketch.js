@@ -8,6 +8,8 @@ function setup() {
 function draw() {
   background(220);
   drawGrid();
+  ellipse(player.getX(),player.getY(), playerSize, playerSize);
+  
 }
 
 /* Iterates through the X and Y coords to create a line every 50 spaces */
