@@ -1,5 +1,3 @@
-let playerSize = 50;
-
 class PlayerController {
     constructor(player) {
         this.player = player;
@@ -14,19 +12,19 @@ class PlayerController {
 
         switch (key) {
             case 'a':
-                this.player.setX(playerX -= gridDivision)
+                this.player.setX(this.playerX -= gridDivision)
                 this.playerX = this.player.getX();
                 break;
             case 'd':
-                this.player.setX(playerX += gridDivision)
+                this.player.setX(this.playerX += gridDivision)
                 this.playerX = this.player.getX();
                 break;
             case 's':
-                this.player.setY(playerY += gridDivision)
+                this.player.setY(this.playerY += gridDivision)
                 this.playerY = this.player.getY();
                 break;
             case 'w':
-                this.player.setY(playerY -= gridDivision)
+                this.player.setY(this.playerY -= gridDivision)
                 this.playerY = this.player.getY();
                 break;
         }
@@ -51,3 +49,5 @@ class PlayerController {
         }
     }
 }
+
+const playerController = new PlayerController(player);

@@ -1,7 +1,6 @@
 const mapSize = 800;
 const gridDivision = 50;
 
-let player = new Player(0,0);
 function setup() {
   createCanvas(mapSize, mapSize);
 }
@@ -9,7 +8,7 @@ function setup() {
 function draw() {
   background(220);
   drawGrid();
-  ellipse(player.getX(),player.getY(), 25, 25 );
+  ellipse(player.getX(),player.getY(), playerSize, playerSize);
   
 }
 

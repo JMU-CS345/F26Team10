@@ -1,3 +1,5 @@
+const playerSize = 50;
+
 class Player {
     constructor(x, y) {
         this.x = x;
@@ -20,3 +22,5 @@ class Player {
         return this.y;
     }
 }
+
+const player = new Player(25, 25);
