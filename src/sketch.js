@@ -1,6 +1,7 @@
 const mapSize = 800;
 const gridDivision = 50;
 
+let player = new Player(0,0);
 function setup() {
   createCanvas(mapSize, mapSize);
 }
@@ -8,6 +9,8 @@ function setup() {
 function draw() {
   background(220);
   drawGrid();
+  ellipse(player.getX(),player.getY(), 25, 25 );
+  
 }
 
 /* Iterates through the X and Y coords to create a line every 50 spaces */

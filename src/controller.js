@@ -1,9 +1,10 @@
 let playerSize = 50;
 
-class Player {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+class PlayerController {
+    constructor(player) {
+        this.player = player;
+        this.playerX = player.getX();
+        this.playerY = player.getY();
     }
 
     move(key) {
@@ -13,16 +14,20 @@ class Player {
 
         switch (key) {
             case 'a':
-                this.x -= gridDivision;
+                this.player.setX(playerX -= gridDivision)
+                this.playerX = this.player.getX();
                 break;
             case 'd':
-                this.x += gridDivision;
+                this.player.setX(playerX += gridDivision)
+                this.playerX = this.player.getX();
                 break;
             case 's':
-                this.y += gridDivision;
+                this.player.setY(playerY += gridDivision)
+                this.playerY = this.player.getY();
                 break;
             case 'w':
-                this.y -= gridDivision;
+                this.player.setY(playerY -= gridDivision)
+                this.playerY = this.player.getY();
                 break;
         }
     }
@@ -30,16 +35,16 @@ class Player {
     checkCollision(key) {
         switch (key) {
         case 'a':
-            return this.x - gridDivision > 0;
+            return this.playerX - gridDivision > 0;
 
         case 'd':
-            return this.x + gridDivision < mapSize;
+            return this.playerX + gridDivision < mapSize;
 
         case 's':
-            return this.y + gridDivision < mapSize;
+            return this.playerX + gridDivision < mapSize;
 
         case 'w':
-            return this.y - gridDivision > 0;
+            return this.playerX - gridDivision > 0;
 
         default:
             return false;
