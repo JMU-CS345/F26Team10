@@ -350,5 +350,5 @@ _
 |----------------|----------------------------|------|
 | grace_kosatka  |  Grace Kosatka             | 10/28|
 | ae-schwarz     |  Ally Schwarz              | 10/28|
-|                |                            |      |
+| oofthegrate    |  Jesse Homan               | 10/28|
 |                |                            |      |
