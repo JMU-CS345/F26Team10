@@ -10,11 +10,13 @@ function setup() {
   textAlign(CENTER, CENTER);
   textFont('Dungeon Quest')
   fill(0);
-  
+
   text('MageQuest', width/2, height/2);
   button = createButton('PLAY');
   button.position(380, 450);
 }
+
+button.mousePressed(draw());
 
 function draw() {
   background(220);
