@@ -1,9 +1,22 @@
 const mapSize = 800;
 const gridDivision = 50;
+let button;
 
 function setup() {
   createCanvas(mapSize, mapSize);
+  background(220);
+
+  textSize(70);
+  textAlign(CENTER, CENTER);
+  textFont('Dungeon Quest')
+  fill(0);
+
+  text('MageQuest', width/2, height/2);
+  button = createButton('PLAY');
+  button.position(380, 450);
 }
+
+button.mousePressed(draw());
 
 function draw() {
   background(220);
