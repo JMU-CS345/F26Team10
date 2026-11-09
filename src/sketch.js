@@ -22,6 +22,7 @@ async function setup() {
   button.position(380, 450);
   button.mouseClicked(startGame);
 
+
   down = await loadImage('src/art/Sprite-0001.png');
   left = await loadImage('src/art/Sprite-0002.png');
   up = await loadImage('src/art/Sprite-0003.png');
@@ -51,9 +52,6 @@ function draw() {
     }
   }
 
-
-
-
   /* Iterates through the X and Y coords to create a line every 50 spaces */
   function drawGrid() {
     stroke(1);
@@ -69,6 +67,7 @@ function draw() {
     }
   }
 
+
   function keyPressed() {
     if (!loaded) return;
 
@@ -82,3 +81,4 @@ function draw() {
       current = down;
     }
   }
+}
