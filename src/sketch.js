@@ -6,8 +6,6 @@ const gridDivision = 50;
 let button;
 let isRunning = false;
 
-
-
 async function setup() {
   createCanvas(mapSize, mapSize);
   background(220);
@@ -42,42 +40,43 @@ function draw() {
   if (isRunning) {
     background(220);
     drawGrid();
-
+  }
+  if (isRunning) {
     if (loaded) {
-      let spriteWidth = 112;
+      let spriteWidth = 40;
       let spriteHeight = spriteWidth * current.height / current.width;
 
       image(current, 0, 0, spriteWidth, spriteHeight);
     }
   }
+}
 
-  /* Iterates through the X and Y coords to create a line every 50 spaces */
-  function drawGrid() {
-    stroke(1);
+/* Iterates through the X and Y coords to create a line every 50 spaces */
+function drawGrid() {
+  stroke(1);
 
-    /* Vertical lines*/
-    for (let i = 0; i < mapSize + 1; i += gridDivision) {
-      line(i, 0, i, mapSize);
-    }
-
-    /* Horizontal lines */
-    for (let i = 0; i < mapSize + 1; i += gridDivision) {
-      line(0, i, mapSize, i);
-    }
+  /* Vertical lines*/
+  for (let i = 0; i < mapSize + 1; i += gridDivision) {
+    line(i, 0, i, mapSize);
   }
 
+  /* Horizontal lines */
+  for (let i = 0; i < mapSize + 1; i += gridDivision) {
+    line(0, i, mapSize, i);
+  }
+}
 
-  function keyPressed() {
-    if (!loaded) return;
 
-    if (key === 'a' || keyCode === LEFT_ARROW) {
-      current = left;
-    } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-      current = right;
-    } else if (key === 'w' || keyCode === UP_ARROW) {
-      current = up;
-    } else if (key === 's' || keyCode === DOWN_ARROW) {
-      current = down;
-    }
+function keyPressed() {
+  if (!loaded) return;
+
+  if (key === 'a' || keyCode === LEFT_ARROW) {
+    current = left;
+  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
+    current = right;
+  } else if (key === 'w' || keyCode === UP_ARROW) {
+    current = up;
+  } else if (key === 's' || keyCode === DOWN_ARROW) {
+    current = down;
   }
 }
