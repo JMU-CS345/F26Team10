@@ -12,9 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Run Jasmine specs in headless Chrome
         run: |
+          google-chrome --headless=new --no-sandbox --disable-gpu \
+            --virtual-time-budget=15000 \
             --dump-dom "file://$PWD/SpecRunner.html" > results.html
+
           # Summary line, e.g. "52 specs, 0 failures"
           summary=$(grep -o 'jasmine-overall-result[^>]*>[^<]*' results.html | sed 's/.*>//')
           echo "Jasmine: ${summary:-no result found}"
