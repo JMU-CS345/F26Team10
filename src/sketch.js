@@ -14,7 +14,6 @@ async function setup() {
 
   textSize(70);
   textAlign(CENTER, CENTER);
-  textFont('Dungeon')
   fill(0);
 
   text('MageQuest', width / 2, height / 2);
