@@ -5,6 +5,23 @@ const mapSize = 800;
 const gridDivision = 50;
 let button;
 let isRunning = false;
+let isSelecting = false;
+let charButtons = [];
+
+const characters = [
+  {
+    name: 'Mage 1',
+    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+  },
+  {
+    name: 'Mage 2',
+    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+  },
+  {
+    name: 'Mage 3',
+    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+  },
+];
 
 async function setup() {
   createCanvas(mapSize, mapSize);
@@ -20,33 +37,73 @@ async function setup() {
   button.mouseClicked(startGame);
 
 
-  down = await loadImage('src/art/Sprite-0001.png');
-  left = await loadImage('src/art/Sprite-0002.png');
-  up = await loadImage('src/art/Sprite-0003.png');
-  right = await loadImage('src/art/Sprite-0004.png');
+  for (const c of characters) {
+    c.down = await loadImage(c.files[0]);
+    c.left = await loadImage(c.files[1]);
+    c.up = await loadImage(c.files[2]);
+    c.right = await loadImage(c.files[3]);
+  }
 
-  current = down;
   loaded = true;
 }
 
 
 function startGame() {
-  isRunning = true;
+  isSelecting = true;
   button.remove();
+
+  for (let i = 0; i < characters.length; i++) {
+    let b = createButton(characters[i].name);
+    b.size(120, 40);
+    b.position(140 + i * 200, 500); 
+    b.mouseClicked(() => chooseCharacter(i));
+    charButtons.push(b);
+  }
+}
+
+function chooseCharacter(i) {
+  if (!loaded) return;
+
+  down = characters[i].down;
+  left = characters[i].left;
+  up = characters[i].up;
+  right = characters[i].right;
+  current = down;
+
+  for (let b of charButtons) b.remove();
+  charButtons = [];
+
+  isSelecting = false;
+  isRunning = true;
 }
 
 
 function draw() {
-  if (isRunning) {
+  if (isSelecting) {
     background(220);
-    drawGrid();
+    drawSelect();
   }
   if (isRunning) {
-    if (loaded) {
-      let spriteWidth = 40;
-      let spriteHeight = spriteWidth * current.height / current.width;
+    background(220);
+    drawGrid(); 
+    let spriteWidth = 40;
+    let spriteHeight = spriteWidth * current.height / current.width;
+    image(current, 0, 0, spriteWidth, spriteHeight);
+  }
+}
 
-      image(current, 0, 0, spriteWidth, spriteHeight);
+function drawSelect() {
+  fill(0);
+  noStroke();
+  textSize(40);
+  text('CHOOSE YOUR CHARACTER', width / 2, 150);
+
+  if (loaded) {
+    for (let i = 0; i < characters.length; i++) {
+      let img = characters[i].down;
+      let w = 80;
+      let h = w * img.height / img.width;
+      image(img, 200 + i * 200 - w / 2, 350, w, h);
     }
   }
 }
@@ -68,7 +125,7 @@ function drawGrid() {
 
 
 function keyPressed() {
-  if (!loaded) return;
+  if (!isRunning) return;
 
   if (key === 'a' || keyCode === LEFT_ARROW) {
     current = left;
