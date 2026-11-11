@@ -11,15 +11,15 @@ let charButtons = [];
 const characters = [
   {
     name: 'Fire',
-    files: ['src/art/Fire_Down.png', 'src/art/Fire_Right.png', 'src/art/Fire_Left.png', 'src/art/Fire_Up.png'],
+    files: ['src/art/Fire_Down.png', 'src/art/Fire_Left.png', 'src/art/Fire_Up.png', 'src/art/Fire_Right.png'],
   },
   {
     name: 'Ice',
-    files: ['src/art/Ice_Down.png', 'src/art/Ice_Right.png', 'src/art/Ice_Left.png', 'src/art/Ice_Up.png'],
+    files: ['src/art/Ice_Down.png', 'src/art/Ice_Left.png', 'src/art/Ice_Up.png', 'src/art/Ice_Right.png'],
   },
   {
     name: 'Psychic',
-    files: ['src/art/Mind_Down.png', 'src/art/Mind_Right.png', 'src/art/Mind_Left.png', 'src/art/Mind_Up.png'],
+    files: ['src/art/Mind_Down.png', 'src/art/Mind_Left.png', 'src/art/Mind_Up.png', 'src/art/Mind_Right.png'],
   },
 ];
 
