@@ -7,6 +7,7 @@ let button;
 let isRunning = false;
 let isSelecting = false;
 let charButtons = [];
+let settings;
 
 const characters = [
   {
@@ -51,6 +52,7 @@ async function setup() {
 function startGame() {
   isSelecting = true;
   button.remove();
+  settings = createButton('SETTINGS');
 
   for (let i = 0; i < characters.length; i++) {
     let b = createButton(characters[i].name);
