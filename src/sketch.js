@@ -53,7 +53,7 @@ function startGame() {
   isSelecting = true;
   button.remove();
   settings = createButton('SETTINGS');
-  settings.position = (RIGHT, RIGHT);
+  settings.position = (750, -1);
 
   for (let i = 0; i < characters.length; i++) {
     let b = createButton(characters[i].name);
