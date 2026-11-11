@@ -10,16 +10,16 @@ let charButtons = [];
 
 const characters = [
   {
-    name: 'Mage 1',
-    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+    name: 'Fire',
+    files: ['src/art/Fire_Down.png', 'src/art/Fire_Right.png', 'src/art/Fire_Left.png', 'src/art/Fire_Up.png'],
   },
   {
-    name: 'Mage 2',
-    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+    name: 'Ice',
+    files: ['src/art/Ice_Down.png', 'src/art/Ice_Right.png', 'src/art/Ice_Left.png', 'src/art/Ice_Up.png'],
   },
   {
-    name: 'Mage 3',
-    files: ['src/art/Sprite-0001.png', 'src/art/Sprite-0002.png', 'src/art/Sprite-0003.png', 'src/art/Sprite-0004.png'],
+    name: 'Psychic',
+    files: ['src/art/Mind_Down.png', 'src/art/Mind_Right.png', 'src/art/Mind_Left.png', 'src/art/Mind_Up.png'],
   },
 ];
 
