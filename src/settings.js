@@ -15,6 +15,7 @@ function createSettingsButton() {
 }
 
 function openSettings() {
+  if (isSettingsOpen) return;
   isSettingsOpen = true;
   settingsButton.hide();
 
@@ -22,14 +23,24 @@ function openSettings() {
   closeButton.size(30, 30);
   closeButton.position(x + w - 40, y + 10);
   closeButton.mouseClicked(closeSettings);
+  closeButton.elt.focus();
 }
 
 function closeSettings() {
+  if (!isSettingsOpen) return;
   isSettingsOpen = false;
   closeButton.remove();
   settingsButton.show();
+  settingsButton.elt.focus();
 }
 
+function toggleSettings() {
+  if (isSettingsOpen) {
+    closeSettings();
+  } else {
+    openSettings();
+  }
+}
 
 function drawSettings() {
   if (!isSettingsOpen) return;
