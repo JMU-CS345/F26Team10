@@ -75,6 +75,7 @@ function chooseCharacter(i) {
 
   isSelecting = false;
   isRunning = true;
+  createSettingsButton();
 }
 
 
@@ -89,6 +90,7 @@ function draw() {
     let spriteWidth = 40;
     let spriteHeight = spriteWidth * current.height / current.width;
     image(current, 0, 0, spriteWidth, spriteHeight);
+    drawSettings();
   }
 }
 
@@ -125,7 +127,7 @@ function drawGrid() {
 
 
 function keyPressed() {
-  if (!isRunning) return;
+  if (!isRunning || isSettingsOpen) return;
 
   if (key === 'a' || keyCode === LEFT_ARROW) {
     current = left;
