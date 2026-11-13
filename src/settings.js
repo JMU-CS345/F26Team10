@@ -78,7 +78,7 @@ function drawSettings() {
   noStroke();
   textAlign(CENTER, CENTER);
   textSize(30);
-  text('Settings', x + w / 2, y + 40);
+  text('SETTINGS', x + w / 2, y + 40);
 
   textSize(24);
   text('VOLUME', x + w / 2, 300);
