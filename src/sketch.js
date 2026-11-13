@@ -127,8 +127,22 @@ function drawGrid() {
 
 
 function keyPressed() {
-  if (!isRunning || isSettingsOpen) return;
+  if (keyCode === ESCAPE) {
+    if (isRunning) toggleSettings();
+    return;
+  }
 
+  if (!isRunning && isSettingsOpen) {
+    if (keyCode === UP_ARROW) {
+      changeVolume(volStep);
+    } else if (keyCode === DOWN_ARROW) {
+      changeVolume(-volStep);
+    }
+    return false;
+  }
+
+  if (!isRunning) return;
+  
   if (key === 'a' || keyCode === LEFT_ARROW) {
     current = left;
   } else if (key === 'd' || keyCode === RIGHT_ARROW) {
