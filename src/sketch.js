@@ -3,10 +3,14 @@ const mapSize = 800;
 const gridDivision = 50;
 let button;
 let isRunning = false;
+let player;
 
 async function setup() {
   createCanvas(mapSize, mapSize);
   background(220);
+
+  player = new Player(50, 50, 5, 10);
+  playerController = new PlayerController(player);
 
   textSize(70);
   textAlign(CENTER, CENTER);
@@ -34,7 +38,8 @@ function draw() {
   }
   if (isRunning) {
     if (loaded) {
-      player.drawPlayer(player.getSprite());
+      (player);
+      drawPlayer();
     }
   }
 }
@@ -52,4 +57,8 @@ function drawGrid() {
   for (let i = 0; i < mapSize + 1; i += gridDivision) {
     line(0, i, mapSize, i);
   }
+}
+
+function drawPlayer() {
+  image(player.getSprite(), player.getX(), player.getY(), spriteWidth, spriteHeight);
 }

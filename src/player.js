@@ -1,26 +1,14 @@
-let up, down, left, right;
-
 const playerSize = 50;
 const spriteWidth = 40;
-const spriteHeight = spriteWidth;// * (current.height / current.width);
-
-function preload() {
-    down = loadImage('src/art/Sprite-0001.png');
-    left = loadImage('src/art/Sprite-0002.png');
-    up = loadImage('src/art/Sprite-0003.png');
-    right = loadImage('src/art/Sprite-0004.png');
-}
 
 class Player {
-    constructor(x, y) {
+    constructor(x, y, health, mana) {
         this.x = x;
         this.y = y;
         this.sprite = down;
-    }
-
-    drawPlayer(img) {
-        console.log(img);
-        image(img, this.x, this.y, spriteWidth, spriteHeight);
+        this.health = health;
+        this.mana = mana;
+        this.inventory = {};
     }
 
     setSprite(img) {
@@ -47,5 +35,3 @@ class Player {
         return this.y;
     }
 }
-
-globalThis.player = new Player(50, 50);

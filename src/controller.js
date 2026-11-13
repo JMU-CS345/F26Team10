@@ -53,5 +53,3 @@ class PlayerController {
         }
     }
 }
-
-const playerController = new PlayerController(player);
