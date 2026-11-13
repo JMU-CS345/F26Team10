@@ -1,5 +1,3 @@
-let current;
-let down, up, right, left;
 let loaded = false;
 const mapSize = 800;
 const gridDivision = 50;
@@ -19,13 +17,6 @@ async function setup() {
   button.position(380, 450);
   button.mouseClicked(startGame);
 
-
-  down = await loadImage('src/art/Sprite-0001.png');
-  left = await loadImage('src/art/Sprite-0002.png');
-  up = await loadImage('src/art/Sprite-0003.png');
-  right = await loadImage('src/art/Sprite-0004.png');
-
-  current = down;
   loaded = true;
 }
 
@@ -43,10 +34,7 @@ function draw() {
   }
   if (isRunning) {
     if (loaded) {
-      let spriteWidth = 40;
-      let spriteHeight = spriteWidth * current.height / current.width;
-
-      image(current, 0, 0, spriteWidth, spriteHeight);
+      player.drawPlayer();
     }
   }
 }
