@@ -1,10 +1,9 @@
-let current;
-let down, up, right, left;
 let loaded = false;
 const mapSize = 800;
 const gridDivision = 50;
 let button;
 let isRunning = false;
+let player;
 let isSelecting = false;
 let charButtons = [];
 
@@ -27,6 +26,9 @@ async function setup() {
   createCanvas(mapSize, mapSize);
   background(220);
 
+  player = new Player(50, 50, 5, 10);
+  playerController = new PlayerController(player);
+
   textSize(70);
   textAlign(CENTER, CENTER);
   fill(0);
@@ -35,7 +37,6 @@ async function setup() {
   button = createButton('PLAY');
   button.position(380, 450);
   button.mouseClicked(startGame);
-
 
   for (const c of characters) {
     c.down = await loadImage(c.files[0]);
@@ -84,6 +85,10 @@ function draw() {
     drawSelect();
   }
   if (isRunning) {
+    if (loaded) {
+      (player);
+      drawPlayer();
+      
     background(220);
     drawGrid(); 
     let spriteWidth = 40;
@@ -123,17 +128,6 @@ function drawGrid() {
   }
 }
 
-
-function keyPressed() {
-  if (!isRunning) return;
-
-  if (key === 'a' || keyCode === LEFT_ARROW) {
-    current = left;
-  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-    current = right;
-  } else if (key === 'w' || keyCode === UP_ARROW) {
-    current = up;
-  } else if (key === 's' || keyCode === DOWN_ARROW) {
-    current = down;
-  }
+function drawPlayer() {
+  image(player.getSprite(), player.getX(), player.getY(), spriteWidth, spriteHeight);
 }

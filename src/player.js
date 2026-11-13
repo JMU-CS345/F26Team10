@@ -1,9 +1,18 @@
 const playerSize = 50;
+const spriteWidth = 40;
 
 class Player {
-    constructor(x, y) {
+    constructor(x, y, health, mana) {
         this.x = x;
         this.y = y;
+        this.sprite = down;
+        this.health = health;
+        this.mana = mana;
+        this.inventory = {};
+    }
+
+    setSprite(img) {
+        this.sprite = img;
     }
 
     setX(x) {
@@ -14,6 +23,10 @@ class Player {
         this.y = y;
     }
 
+    getSprite() {
+        return this.sprite;
+    }
+
     getX() {
         return this.x;
     }
@@ -22,5 +35,3 @@ class Player {
         return this.y;
     }
 }
-
-const player = new Player(25, 25);
