@@ -12,7 +12,7 @@ class PlayerController {
     }
 
     move(key) {
-        if (!this.checkCollision(key)) {
+        if (!this.checkCollision(key) || !loaded) {
             return;
         }
 

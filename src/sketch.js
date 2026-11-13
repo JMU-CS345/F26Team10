@@ -53,18 +53,3 @@ function drawGrid() {
     line(0, i, mapSize, i);
   }
 }
-
-
-function keyPressed() {
-  if (!loaded) return;
-
-  if (key === 'a' || keyCode === LEFT_ARROW) {
-    current = left;
-  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-    current = right;
-  } else if (key === 'w' || keyCode === UP_ARROW) {
-    current = up;
-  } else if (key === 's' || keyCode === DOWN_ARROW) {
-    current = down;
-  }
-}
