@@ -34,7 +34,7 @@ function draw() {
   }
   if (isRunning) {
     if (loaded) {
-      player.drawPlayer();
+      player.drawPlayer(player.getSprite());
     }
   }
 }
