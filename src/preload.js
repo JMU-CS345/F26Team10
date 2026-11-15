@@ -1,14 +1,23 @@
-let spriteHeight;
-
-let down;
-let left;
-let up;
-let right;
+const characters = [
+    {
+        name: 'Fire',
+        files: ['src/art/Fire_Down.png', 'src/art/Fire_Left.png', 'src/art/Fire_Up.png', 'src/art/Fire_Right.png'],
+    },
+    {
+        name: 'Ice',
+        files: ['src/art/Ice_Down.png', 'src/art/Ice_Left.png', 'src/art/Ice_Up.png', 'src/art/Ice_Right.png'],
+    },
+    {
+        name: 'Psychic',
+        files: ['src/art/Mind_Down.png', 'src/art/Mind_Left.png', 'src/art/Mind_Up.png', 'src/art/Mind_Right.png'],
+    },
+];
 
 function preload() {
-    down = loadImage('src/art/Sprite-0001.png');
-    left = loadImage('src/art/Sprite-0002.png');
-    up = loadImage('src/art/Sprite-0003.png');
-    right = loadImage('src/art/Sprite-0004.png');
-    spriteHeight = spriteWidth * (down.height / down.width);
+    for (const c of characters) {
+        c.down = loadImage(c.files[0]);
+        c.left = loadImage(c.files[1]);
+        c.up = loadImage(c.files[2]);
+        c.right = loadImage(c.files[3]);
+    }
 }
