@@ -4,6 +4,7 @@ let isSettingsOpen = false;
 let volume = 50;
 let volDown;
 let volUp;
+let exitButton;
 
 const x = 200;
 const y = 200;
@@ -40,6 +41,11 @@ function openSettings() {
   volUp.attribute('aria-label', 'Increase volume');
   volUp.mouseClicked(() => changeVolume(volStep));
 
+  exitButton = createButton('RESTART');
+  exitButton.size(200, 40);
+  exitButton.position(300, 500);
+  exitButton.mouseClicked(exitToStart);
+
   closeButton.elt.focus();
 }
 
@@ -49,6 +55,7 @@ function closeSettings() {
   closeButton.remove();
   volDown.remove();
   volUp.remove();
+  exitButton.remove();
   settingsButton.show();
   settingsButton.elt.focus();
 }
@@ -63,6 +70,14 @@ function toggleSettings() {
 
 function changeVolume(amount) {
     volume = constrain(volume + amount, 0, 100);
+}
+
+function exitToStart() {
+    closeSettings();
+    settingsButton.remove();
+    isRunning = false;
+    showStartScreen();
+    button.elt.focus();
 }
 
 function drawSettings() {
