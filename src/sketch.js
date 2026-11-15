@@ -132,7 +132,7 @@ function keyPressed() {
     return;
   }
 
-  if (!isRunning && isSettingsOpen) {
+  if (isRunning && isSettingsOpen) {
     if (keyCode === UP_ARROW) {
       changeVolume(volStep);
     } else if (keyCode === DOWN_ARROW) {
@@ -142,7 +142,7 @@ function keyPressed() {
   }
 
   if (!isRunning) return;
-  
+
   if (key === 'a' || keyCode === LEFT_ARROW) {
     current = left;
   } else if (key === 'd' || keyCode === RIGHT_ARROW) {
