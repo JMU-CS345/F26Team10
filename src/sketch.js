@@ -25,16 +25,7 @@ const characters = [
 
 async function setup() {
   createCanvas(mapSize, mapSize);
-  background(220);
-
-  textSize(70);
-  textAlign(CENTER, CENTER);
-  fill(0);
-
-  text('MageQuest', width / 2, height / 2);
-  button = createButton('PLAY');
-  button.position(380, 450);
-  button.mouseClicked(startGame);
+  showStartScreen();
 
 
   for (const c of characters) {
@@ -45,6 +36,19 @@ async function setup() {
   }
 
   loaded = true;
+}
+
+function showStartScreen() {
+  background(220);
+
+  textSize(70);
+  textAlign(CENTER, CENTER);
+  fill(0);
+
+  text('MageQuest', width / 2, height / 2);
+  button = createButton('PLAY');
+  button.position(380, 450);
+  button.mouseClicked(startGame);
 }
 
 
