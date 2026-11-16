@@ -17,7 +17,7 @@ async function setup() {
   createCanvas(mapSize, mapSize);
   background(220);
 
-  player = new Player(125, 125, 5, 10);
+  player = new Player(105, 101, 5, 10);
   playerController = new PlayerController(player);
 
   textSize(70);
