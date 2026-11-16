@@ -16,12 +16,16 @@ let spriteHeight;
 async function setup() {
   createCanvas(mapSize, mapSize);
   showStartScreen();
+  
+  player = new Player(105, 101, 5, 10);
+  playerController = new PlayerController(player);
 
   player = new Player(105, 101, 5, 10);
   playerController = new PlayerController(player);
 
   loaded = true;
 }
+
 
 function showStartScreen() {
   background(220);
