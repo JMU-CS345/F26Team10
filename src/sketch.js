@@ -20,6 +20,9 @@ async function setup() {
   player = new Player(105, 101, 5, 10);
   playerController = new PlayerController(player);
 
+  player = new Player(105, 101, 5, 10);
+  playerController = new PlayerController(player);
+
   loaded = true;
 }
 
@@ -66,6 +69,8 @@ function chooseCharacter(i) {
 
   isSelecting = false;
   isRunning = true;
+  spriteHeight = spriteWidth * player.getSprite().height / player.getSprite().width;
+  
   createSettingsButton();
 }
 
@@ -78,9 +83,7 @@ function draw() {
   if (isRunning) {
     background(220);
     drawGrid();
-    let spriteWidth = 40;
-    let spriteHeight = spriteWidth * current.height / current.width;
-    image(current, 0, 0, spriteWidth, spriteHeight);
+    drawPlayer();
     drawSettings();
   }
 }
@@ -142,23 +145,24 @@ function keyPressed() {
     current = up;
   } else if (key === 's' || keyCode === DOWN_ARROW) {
     current = down;
-    function drawPlayer() {
-      let direction;
-      switch (player.getDirection()) {
-        case 'down':
-          direction = down;
-          break;
-        case 'up':
-          direction = up;
-          break;
-        case 'left':
-          direction = left;
-          break;
-        case 'right':
-          direction = right;
-          break;
-      }
-      image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
-    }
   }
+}
+
+function drawPlayer() {
+  let direction;
+  switch (player.getDirection()) {
+    case 'down':
+      direction = down;
+      break;
+    case 'up':
+      direction = up;
+      break;
+    case 'left':
+      direction = left;
+      break;
+    case 'right':
+      direction = right;
+      break;
+  }
+  image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
 }
