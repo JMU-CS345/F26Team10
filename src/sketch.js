@@ -73,7 +73,7 @@ function draw() {
   }
   if (isRunning) {
     background(220);
-    drawGrid(); 
+    drawGrid();
     let spriteWidth = 40;
     let spriteHeight = spriteWidth * current.height / current.width;
     image(current, 0, 0, spriteWidth, spriteHeight);
@@ -138,21 +138,23 @@ function keyPressed() {
     current = up;
   } else if (key === 's' || keyCode === DOWN_ARROW) {
     current = down;
-function drawPlayer() {
-  let direction;
-  switch(player.getDirection()) {
-    case 'down':
-      direction = down;
-      break;
-    case 'up':
-      direction = up;
-      break;
-    case 'left':
-      direction = left;
-      break;
-    case 'right':
-      direction = right;
-      break;
+    function drawPlayer() {
+      let direction;
+      switch (player.getDirection()) {
+        case 'down':
+          direction = down;
+          break;
+        case 'up':
+          direction = up;
+          break;
+        case 'left':
+          direction = left;
+          break;
+        case 'right':
+          direction = right;
+          break;
+      }
+      image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
+    }
   }
-  image(direction , player.getX(), player.getY(), spriteWidth, spriteHeight);
 }
