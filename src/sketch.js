@@ -1,39 +1,21 @@
-let current;
-let down, up, right, left;
 let loaded = false;
 const mapSize = 800;
 const gridDivision = 50;
 let button;
 let isRunning = false;
+let player;
 let isSelecting = false;
 let charButtons = [];
 
-const characters = [
-  {
-    name: 'Fire',
-    files: ['src/art/Fire_Down.png', 'src/art/Fire_Left.png', 'src/art/Fire_Up.png', 'src/art/Fire_Right.png'],
-  },
-  {
-    name: 'Ice',
-    files: ['src/art/Ice_Down.png', 'src/art/Ice_Left.png', 'src/art/Ice_Up.png', 'src/art/Ice_Right.png'],
-  },
-  {
-    name: 'Psychic',
-    files: ['src/art/Mind_Down.png', 'src/art/Mind_Left.png', 'src/art/Mind_Up.png', 'src/art/Mind_Right.png'],
-  },
-];
+const playerSize = 50;
+const spriteWidth = 40;
+let spriteHeight;
+
+
 
 async function setup() {
   createCanvas(mapSize, mapSize);
   showStartScreen();
-
-
-  for (const c of characters) {
-    c.down = await loadImage(c.files[0]);
-    c.left = await loadImage(c.files[1]);
-    c.up = await loadImage(c.files[2]);
-    c.right = await loadImage(c.files[3]);
-  }
 
   loaded = true;
 }
@@ -59,7 +41,7 @@ function startGame() {
   for (let i = 0; i < characters.length; i++) {
     let b = createButton(characters[i].name);
     b.size(120, 40);
-    b.position(140 + i * 200, 500); 
+    b.position(140 + i * 200, 500);
     b.mouseClicked(() => chooseCharacter(i));
     charButtons.push(b);
   }
@@ -72,7 +54,8 @@ function chooseCharacter(i) {
   left = characters[i].left;
   up = characters[i].up;
   right = characters[i].right;
-  current = down;
+  player.setSprite(down);
+  player.setClassID(i)
 
   for (let b of charButtons) b.remove();
   charButtons = [];
@@ -155,5 +138,21 @@ function keyPressed() {
     current = up;
   } else if (key === 's' || keyCode === DOWN_ARROW) {
     current = down;
+function drawPlayer() {
+  let direction;
+  switch(player.getDirection()) {
+    case 'down':
+      direction = down;
+      break;
+    case 'up':
+      direction = up;
+      break;
+    case 'left':
+      direction = left;
+      break;
+    case 'right':
+      direction = right;
+      break;
   }
+  image(direction , player.getX(), player.getY(), spriteWidth, spriteHeight);
 }

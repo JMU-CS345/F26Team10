@@ -1,36 +1,46 @@
 describe("Player movement", function () {
 
   let player;
-
+  let playerController;
   beforeEach(function() {
-    player = new PlayerController(125, 125);
+    loaded = true;
+
+    player = new Player(125, 125, 5, 10);
+    playerController = new PlayerController(player);
+    player.setSprite(characters[0].files[0]);
+
   });
 
-    it("should move left", function() {
-    player.move('a');
 
-    expect(player.x).toBe(75);
-    expect(player.y).toBe(125);
+    it("should move left", function() {
+    playerController.move('a');
+
+    expect(player.getX()).toBe(75);
+    expect(player.getY()).toBe(125);
+    expect(player.getSprite()).toBe('src/art/Fire_Left.png');
   })
 
     it("should move right", function() {
-    player.move('a');
+    playerController.move('d');
 
-    expect(player.x).toBe(175);
-    expect(player.y).toBe(125);
+    expect(player.getX()).toBe(175);
+    expect(player.getY()).toBe(125);
+    expect(player.getSprite()).toBe('src/art/Fire_Right.png');
   })
 
     it("should move up", function() {
-    player.move('a');
+    playerController.move('w');
 
-    expect(player.x).toBe(125);
-    expect(player.y).toBe(75);
+    expect(player.getX()).toBe(125);
+    expect(player.getY()).toBe(75);
+    expect(player.getSprite()).toBe('src/art/Fire_Up.png');
   })
 
     it("should move down", function() {
-    player.move('a');
+    playerController.move('s');
 
-    expect(player.x).toBe(125);
-    expect(player.y).toBe(175);
+    expect(player.getX()).toBe(125);
+    expect(player.getY()).toBe(175);
+    expect(player.getSprite()).toBe('src/art/Fire_Down.png');
   })
 });
