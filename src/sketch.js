@@ -15,10 +15,13 @@ let spriteHeight;
 
 async function setup() {
   createCanvas(mapSize, mapSize);
-  background(220);
+  showStartScreen();
 
-  player = new Player(125, 125, 5, 10);
-  playerController = new PlayerController(player);
+  loaded = true;
+}
+
+function showStartScreen() {
+  background(220);
 
   textSize(70);
   textAlign(CENTER, CENTER);
@@ -28,8 +31,6 @@ async function setup() {
   button = createButton('PLAY');
   button.position(380, 450);
   button.mouseClicked(startGame);
-
-  loaded = true;
 }
 
 
@@ -61,7 +62,7 @@ function chooseCharacter(i) {
 
   isSelecting = false;
   isRunning = true;
-  spriteHeight = spriteWidth * player.getSprite().height / player.getSprite().width;
+  createSettingsButton();
 }
 
 
@@ -71,11 +72,12 @@ function draw() {
     drawSelect();
   }
   if (isRunning) {
-    if (loaded) {
-      background(220);
-      drawGrid();
-      drawPlayer();
-    }
+    background(220);
+    drawGrid();
+    let spriteWidth = 40;
+    let spriteHeight = spriteWidth * current.height / current.width;
+    image(current, 0, 0, spriteWidth, spriteHeight);
+    drawSettings();
   }
 }
 
@@ -110,21 +112,49 @@ function drawGrid() {
   }
 }
 
-function drawPlayer() {
-  let direction;
-  switch(player.getDirection()) {
-    case 'down':
-      direction = down;
-      break;
-    case 'up':
-      direction = up;
-      break;
-    case 'left':
-      direction = left;
-      break;
-    case 'right':
-      direction = right;
-      break;
+
+function keyPressed() {
+  if (keyCode === ESCAPE) {
+    if (isRunning) toggleSettings();
+    return;
   }
-  image(direction , player.getX(), player.getY(), spriteWidth, spriteHeight);
+
+  if (isRunning && isSettingsOpen) {
+    if (keyCode === UP_ARROW) {
+      changeVolume(volStep);
+    } else if (keyCode === DOWN_ARROW) {
+      changeVolume(-volStep);
+    }
+    return false;
+  }
+
+  if (!isRunning) return;
+
+  if (key === 'a' || keyCode === LEFT_ARROW) {
+    current = left;
+  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
+    current = right;
+  } else if (key === 'w' || keyCode === UP_ARROW) {
+    current = up;
+  } else if (key === 's' || keyCode === DOWN_ARROW) {
+    current = down;
+    function drawPlayer() {
+      let direction;
+      switch (player.getDirection()) {
+        case 'down':
+          direction = down;
+          break;
+        case 'up':
+          direction = up;
+          break;
+        case 'left':
+          direction = left;
+          break;
+        case 'right':
+          direction = right;
+          break;
+      }
+      image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
+    }
+  }
 }
