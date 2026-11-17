@@ -1,12 +1,28 @@
 function keyPressed() {
   let movementKey = movementKeyPress(key);
 
+
+  if (keyCode === ESCAPE) {
+    if (isRunning) toggleSettings();
+    return;
+  }
+
+  if (isRunning && isSettingsOpen) {
+    if (keyCode === UP_ARROW) {
+      changeVolume(volStep);
+    } else if (keyCode === DOWN_ARROW) {
+      changeVolume(-volStep);
+    }
+    return false;
+  }
+
   if (movementKey !== undefined) {
     playerController.move(movementKey);
   }
 }
 
 function movementKeyPress(key) {
+  console.log(key); 
   if (key === 'a' || key === 'A' || keyCode === LEFT_ARROW) {
     return 'a';
   } 

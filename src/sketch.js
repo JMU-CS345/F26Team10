@@ -20,9 +20,6 @@ async function setup() {
   player = new Player(105, 101, 5, 10);
   playerController = new PlayerController(player);
 
-  player = new Player(105, 101, 5, 10);
-  playerController = new PlayerController(player);
-
   loaded = true;
 }
 
@@ -83,6 +80,7 @@ function draw() {
   if (isRunning) {
     background(220);
     drawGrid();
+    (player);
     drawPlayer();
     drawSettings();
   }
@@ -116,35 +114,6 @@ function drawGrid() {
   /* Horizontal lines */
   for (let i = 0; i < mapSize + 1; i += gridDivision) {
     line(0, i, mapSize, i);
-  }
-}
-
-
-function keyPressed() {
-  if (keyCode === ESCAPE) {
-    if (isRunning) toggleSettings();
-    return;
-  }
-
-  if (isRunning && isSettingsOpen) {
-    if (keyCode === UP_ARROW) {
-      changeVolume(volStep);
-    } else if (keyCode === DOWN_ARROW) {
-      changeVolume(-volStep);
-    }
-    return false;
-  }
-
-  if (!isRunning) return;
-
-  if (key === 'a' || keyCode === LEFT_ARROW) {
-    current = left;
-  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-    current = right;
-  } else if (key === 'w' || keyCode === UP_ARROW) {
-    current = up;
-  } else if (key === 's' || keyCode === DOWN_ARROW) {
-    current = down;
   }
 }
 
