@@ -10,6 +10,7 @@ describe("Player movement", function () {
     playerController = new PlayerController(player);
     player.setSprite(characters[0].files[0]);
     wallArray = [];
+    
   });
 
 
