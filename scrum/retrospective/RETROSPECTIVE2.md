@@ -6,7 +6,7 @@
 
 ## 1. Meeting Details
 
-**Date:** 11/9/2026
+**Date:** 11/18/2026
 
 **Facilitator:** Jesse
 
@@ -22,11 +22,14 @@
 
 | Action item | Owner | Done? | Did it help? |
 |-------------|-------|-------|--------------|
-| Wall Interaction    |  Jesse     | No      |    n/a    |
-| Grid Based Movement |  Jesse     | No      |    n/a    |
-| Baseplate           |  Jesse     | Yes      |    n/a    |
-| Character Sprite    |  Grace     | Yes      |    n/a    |
-| Start Screen        |  Ally      | Yes      |    n/a    |
+| Wall interaction     | Jesse|    yes    | yes   |
+| Grid based movement  | Jesse |  yes     | yes    |
+| Player Selection     | Ally |    yes    | yes    |
+| Create a coherent player class | Jesse |  yes   | yes   |
+| Different Mage Sprites | Grace |   yes  |  yes |
+| Background |  Grace  |   Jesse  | no | no    |
+| Game Logo | Grace | yes  | yes   |
+| Settings/Pause screen | Ally |  yes  |  yes   |
 
 ---
 
@@ -34,11 +37,11 @@
 
 *Use these to ground the discussion in evidence.*
 
-**Points committed / completed:** 5 / 3
+**Points committed / completed:** 18 / 16
 
-**PRs merged:** 18
+**PRs merged:** 
 
-**CI runs failed / total:** 13 / 32 *(In your repo's **Actions** tab, count the runs from this sprint's dates. Use the **Status** filter to find the failed ones.)*
+**CI runs failed / total:** 7 / 20 *(In your repo's **Actions** tab, count the runs from this sprint's dates. Use the **Status** filter to find the failed ones.)*
 
 **Stories carried over:** 2
 
@@ -52,20 +55,21 @@
 
 ### What went well
 
-- Reviewing Pull Requests
-- Seeing code in live server
-- Getting our issues resolved
+- The Drawing of the sprites including the different mages, sprites, and backgrounds.
+- The creation of a pause/settings screen to exit from the game when the user wants to.
+- The implementations from our first sprint made it significantly easier to implement new features like wall collision. 
 
 ### What did not go well
 
-- Resolving conflicts
-- Tests
-- Merging branches
+- Time management in regards to implementing the images into the game specifically the safe zone implementation.
+- Conflicts with merging in the same file which caused a lot of figuring out exactly where our code was having errors. 
+- We still encountered errors with pushing and pulling, as well as branches not functioning properly.
 
 ### What puzzled us or what we want to try
 
-- Different Mage Types
-- Ensuring we all seeing the same thing on our screens
+- Implementing multiple game ares, dungeon and safe zone, and traveling between the two.
+- We want to try adding sound, so that the volume buttons in the settings bar are actually functional. 
+- We want to try making the enemies and inventory
 
 ---
 
@@ -73,15 +77,15 @@
 
 *Pick the most important problem from above and ask "why?" until you reach something the team can change.*
 
-**Problem:** Tests
+**Problem:** Conflicts while merging in the same file.
 
-**Why?** Some elements are hard to test
+**Why?** Incorrect handling of merges
 
-**Why?** We aren't splitting up elements into separate controller classes to test.
+**Why?** We were using the buttons instead of manually editing the merges to make them work
 
 **Why?** _
 
-**Root cause:** We aren't splitting up elements into separate controller classes to test.
+**Root cause:** We were using the buttons instead of manually editing the merges to make them work.
 
 ---
 
@@ -91,9 +95,8 @@
 
 | Action item | Owner | How we will know it worked |
 |-------------|-------|----------------------------|
-| Wall Interaction            |  Jesse     |     if they player position is accurately updated when running into obstacles                       |
-| Grid Based movement         | Jesse      |     if the player position is accurately updated                       |
-|             |       |                            |
+| Establish clearer responsibilities between classes  |  Jesse     |   Classes are easier to read and understand what they do |
+| Improve class testing  |  Jesse  | Every file has near 100% coverage over test cases. |
 
 ---
 
