@@ -26,11 +26,11 @@
 
 *Tell the stakeholder whether the sprint delivered what it set out to.*
 
-**The goal we set:**  A player can move around on a set board. If a player runs into the edge, they are stopped.
+**The goal we set:** The player should be able to select between different classes and restart the game (in addition to movement from the previous sprint).
 
 **Did we meet it?** *(Yes / Partly / No, and one sentence explaining why)*
 
-Partly. While the player sprite and movement were added, we still need to combine the parts to one player object so that they both work together.
+Yes. While we did not meet one of our requirements, the core mechanics that we set out to implement were all successfully implemented.
 
 ---
 
@@ -42,27 +42,31 @@ Partly. While the player sprite and movement were added, we still need to combin
 
 | Issue # | User story | Estimate | Owner | Done? | Built by |
 |---------|------------|----------|-------|-------|----------|
-| Wall interaction     | As a player, if I run into a wall, I want to stop moving |    1      | Jesse      |  no     |           |
-| Grid based movement  | As a player, if I move forward, I want to move exactly one grid space. |     1     | Jesse      |   no    |           |
-| Baseplate            | As a player, I want to see my character on a board |    1      | Jesse      | Yes      |           |
-| Character Sprite     | As a player, I want my character to not be a circle |   1       | Grace      | Yes      |           |
-| Start Screen        | As a player, when I open the game, i want to see a play button that starts the game           |        1  | Ally       | Yes      |           |
+| Wall interaction     | As a player, if I run into a wall, I want to stop moving|    3      |   Jesse    | yes    | Jesse|
+| Grid based movement  | As a player, if I move forward, I want to move exactly one grid space. |     1     |  Jesse     | yes   | Jesse|
+| Player Selection     | As a player, if I boot up a new game |    2     |  Ally     | yes   | Ally|
+| Create a coherent player class | As a programmer, I want everything to be self contained within a player class that dynamically keeps track of itself |  5  |  Jesse     | yes    | Jesse|
+| Different Mage Sprites | As a player, when I start the game, I want the option to choose which class I want to be |   1  |  Grace  | yes    | Grace |
+| Background | As a player, when I start the game, I want to see a cool dungeon background     |   2  | Grace | yes   | Grace |
+| Game Logo | As a player, when I am on the start screen, I want to see a cool game logo |   2  | Grace  | yes    | Grace |
+| Settings/Pause screen | As a player, when I play the game, I want the option to pause the game and change my settings |  2  |  Ally  | yes    | Ally|
+
 ---
 
 ## 4. Metrics
 
 | | Points |
 |---|---|
-| Committed | 5 |
-| Completed | 3 |
-| Completion rate | 60% |
+| Committed | 18 |
+| Completed | 16 |
+| Completion rate | 88.9% |
 
 **Velocity history:**
 
 | Sprint | Committed | Completed |
 |--------|-----------|-----------|
 | 1      |     5      |      3     |
-| 2      |           |           |
+| 2      |      18     |     16      |
 | 3      |           |           |
 | 4      |           |           |
 
@@ -78,21 +82,44 @@ Partly. While the player sprite and movement were added, we still need to combin
 
 *Presenter: be ready to explain and answer questions about every completed story, including work you didn't build.*
 
-### Issue #1: Baseplate
+### Issue #1: Wall interaction
 
-- [0 ] A 800px x 800px board is rendered
-- [ 0] It has grid partitions
+- [0 ] Generate walls around the dungeon.
+- [ 0] If the player tries to move into one, nothing happens.
 
-### Issue #2: Character Sprite
+### Issue #2: Grid based movement
 
-- [0 ] A sprite shows up on game load
+- [0 ] If the player presses the arrow keys or wasd, then they move in that direction
 - [0 ] The sprite changes direction based on which arrow key is pressed
+- [0] All movement is  constrained to a grid.
 
-### Issue #2: Start Screen
+### Issue #3: Player Selection
 
-- [0 ] A screen shows up when the game load that tells you the title of the game
-- [0 ] Pressing a start button
+- [0 ] After pressing play, a menu pops up to select characters
+- [0 ] The sprites for each should be shown so you can see what they look like
+- [0] pressing select selects that character and the player sprite is changed to it.
 
+### Issue #4: Create a coherent player class
+
+- [0 ] Player attributes should be centralized in a single class
+- [0 ] Any attempts to access the player class from other classes must be done through getters and setters.
+
+### Issue #5: Different Mage Sprites
+
+- [0 ] Each sprite should be distinguishable 
+- [0 ] Four directional sprites for one of each class: Fire, Ice, Psychic
+
+## Issue #6: Game Logo
+
+- [0 ] The title screen should have a specialized logo for the game
+- [0 ] Should look cool
+
+### Issue #7: Settings/Pause screen
+
+- [0 ] A special menu must pop up when you click the settings button
+- [0 ] It should pause all movement while it is open
+- [0 ] Volume button that should be able to be manipulated with arrow keys
+- [0 ] Should also feature a button that allows you to reset the game.
 ---
 
 ## 6. Incomplete Work
@@ -101,16 +128,14 @@ Partly. While the player sprite and movement were added, we still need to combin
 
 | Issue # | What remains | New estimate | Back in backlog? |
 |---------|--------------|--------------|------------------|
-| Grid based movement        |  Implement with current state            |  1            | [ ]              |
-|  Wall interaction       |  Make a wall class            |  3            | [ ]              |
-
+| Background | As a player, when I start the game, I want to see a cool dungeon background     |   2  | Grace | [ ]    |
 ---
 
 ## 7. Stakeholder Feedback
 
 *Record what the instructor said: what they liked, what should change, and any new priorities. (Sprint 4: write "n/a")*
 
-Have the player able to move
+Did a good job with graphics, wall collisions well done. Get sound in there if we are going to have volume buttons. More developed dungeon maps, between towns, and add enemies.
 
 ---
 
@@ -118,13 +143,13 @@ Have the player able to move
 
 *How did the backlog change in response to the feedback? (Sprint 4: write "n/a")*
 
-**New stories added:** None
+**New stories added:** Enemies, sounds, and dungeon maps
 
 **Priorities changed:** None
 
 **Stories removed:** None
 
-**If no change was needed, why not?** The feedback we got was already in line with what we were planning in the future.
+**If no change was needed, why not?**
 
 ---
 
@@ -134,7 +159,7 @@ Have the player able to move
 
 **CI status on `production`:** passing
 
-**Number of specs:** 3
+**Number of specs:** 7
 
 **Known bugs in the deployed build:** 0 (we will be bug testing in the future).
 
