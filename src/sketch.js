@@ -17,8 +17,12 @@ async function setup() {
   createCanvas(mapSize, mapSize);
   background(220);
 
-  player = new Player(125, 125, 5, 10);
+  player = new Player(400, 400, 5, 10);
   playerController = new PlayerController(player);
+
+  for (let i = 0; i < 5; i++) {
+    wallArray[i] = new Wall(0 + (50 * i) , 0 + (50 * i));
+  }
 
   textSize(70);
   textAlign(CENTER, CENTER);
@@ -75,6 +79,7 @@ function draw() {
       background(220);
       drawGrid();
       drawPlayer();
+      drawWalls();
     }
   }
 }
@@ -127,4 +132,10 @@ function drawPlayer() {
       break;
   }
   image(direction , player.getX(), player.getY(), spriteWidth, spriteHeight);
+}
+
+function drawWalls() {
+  for (wall of wallArray) {
+    image(wall.getSprite(), wall.getX(), wall.getY(), spriteWidth, spriteHeight);
+  }
 }
