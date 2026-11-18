@@ -6,7 +6,7 @@
 
 ## 1. Meeting Details
 
-**Date:** 11/9/2026
+**Date:** 11/18/2026
 
 **Scrum Master:** Jesse
 
