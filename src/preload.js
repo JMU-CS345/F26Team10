@@ -1,3 +1,5 @@
+let wallSprite;
+
 const characters = [
     {
         name: 'Fire',
@@ -20,4 +22,5 @@ function preload() {
         c.up = loadImage(c.files[2]);
         c.right = loadImage(c.files[3]);
     }
+    wallSprite = loadImage('src/art/Wall_Sprite.png');
 }

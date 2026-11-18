@@ -4,7 +4,7 @@ class Wall {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.sprite = characters[0].down;
+        this.sprite = wallSprite;
     }
 
     getX() {

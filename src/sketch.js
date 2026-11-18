@@ -123,35 +123,6 @@ function drawGrid() {
   }
 }
 
-
-function keyPressed() {
-  if (keyCode === ESCAPE) {
-    if (isRunning) toggleSettings();
-    return;
-  }
-
-  if (isRunning && isSettingsOpen) {
-    if (keyCode === UP_ARROW) {
-      changeVolume(volStep);
-    } else if (keyCode === DOWN_ARROW) {
-      changeVolume(-volStep);
-    }
-    return false;
-  }
-
-  if (!isRunning) return;
-
-  if (key === 'a' || keyCode === LEFT_ARROW) {
-    current = left;
-  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-    current = right;
-  } else if (key === 'w' || keyCode === UP_ARROW) {
-    current = up;
-  } else if (key === 's' || keyCode === DOWN_ARROW) {
-    current = down;
-  }
-}
-
 function drawPlayer() {
   let direction;
   switch (player.getDirection()) {
@@ -173,6 +144,6 @@ function drawPlayer() {
 
 function drawWalls() {
   for (wall of wallArray) {
-    image(wall.getSprite(), wall.getX(), wall.getY(), spriteWidth, spriteHeight);
+    image(wall.getSprite(), wall.getX(), wall.getY());
   }
 }

@@ -41,16 +41,16 @@ class PlayerController {
     checkCollision(key) {
         switch (key) {
             case 'a':
-                return this.playerX - gridDivision > 0 && this.wallCollision('a');
+                return this.playerX - gridDivision > 0 && !this.wallCollision('a');
 
             case 'd':
-                return this.playerX + gridDivision < mapSize && this.wallCollision('d');
+                return this.playerX + gridDivision < mapSize && !this.wallCollision('d');
 
             case 's':
-                return this.playerY + gridDivision < mapSize && this.wallCollision('s');
+                return this.playerY + gridDivision < mapSize && !this.wallCollision('s');
 
             case 'w':
-                return this.playerY - gridDivision > 0 && this.wallCollision('w');
+                return this.playerY - gridDivision > 0 && !this.wallCollision('w');
 
             default:
                 return false;
@@ -58,34 +58,35 @@ class PlayerController {
     }
 
     wallCollision(key) {
-        let collide = false;
-        console.log(key);
-        consol
+        let nextX = this.playerX;
+        let nextY = this.playerY;
+
+        switch (key) {
+            case 'a':
+                nextX -= gridDivision;
+                break;
+
+            case 'd':
+                nextX += gridDivision;
+                break;
+
+            case 's':
+                nextY += gridDivision;
+                break;
+
+            case 'w':
+                nextY -= gridDivision;
+                break;
+
+            default:
+                return false;
+        }
+
         for (let wall of wallArray) {
-            switch (key) {
-                case 'a':
-                    if (wall.getY() === this.playerY) {
-                        collide = this.playerX - gridDivision > wall.getX();
-                    }
-                    break;
-                case 'd':
-                    if (wall.getY() === this.playerY) {
-                        collide = this.playerX + gridDivision < wall.getX();
-                    }
-                    break;
-                case 's':
-                    if (wall.getX() === this.playerX) {
-                        collide = this.playerY + gridDivision < wall.getY();
-                    }
-                case 'w':
-                    if (wall.getX() === this.playerX) {
-                        collide = this.playerY - gridDivision > wall.getY();
-                    }
-                default:
-                    return false;
+            if (wall.getX() === nextX && wall.getY() === nextY) {
+                return true;
             }
         }
-        console.log(collide);
-        return collide;
+        return false;
     }
 }
