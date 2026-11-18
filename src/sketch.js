@@ -15,14 +15,21 @@ let spriteHeight;
 
 async function setup() {
   createCanvas(mapSize, mapSize);
-  background(220);
-
+  showStartScreen();
+  
   player = new Player(400, 400, 5, 10);
   playerController = new PlayerController(player);
 
   for (let i = 0; i < 5; i++) {
     wallArray[i] = new Wall(0 + (50 * i) , 0 + (50 * i));
   }
+
+  loaded = true;
+}
+
+
+function showStartScreen() {
+  background(220);
 
   textSize(70);
   textAlign(CENTER, CENTER);
@@ -32,8 +39,6 @@ async function setup() {
   button = createButton('PLAY');
   button.position(380, 450);
   button.mouseClicked(startGame);
-
-  loaded = true;
 }
 
 
@@ -66,6 +71,8 @@ function chooseCharacter(i) {
   isSelecting = false;
   isRunning = true;
   spriteHeight = spriteWidth * player.getSprite().height / player.getSprite().width;
+  
+  createSettingsButton();
 }
 
 
@@ -79,6 +86,7 @@ function draw() {
       background(220);
       drawGrid();
       drawPlayer();
+      drawSettings();
       drawWalls();
     }
   }
@@ -115,9 +123,38 @@ function drawGrid() {
   }
 }
 
+
+function keyPressed() {
+  if (keyCode === ESCAPE) {
+    if (isRunning) toggleSettings();
+    return;
+  }
+
+  if (isRunning && isSettingsOpen) {
+    if (keyCode === UP_ARROW) {
+      changeVolume(volStep);
+    } else if (keyCode === DOWN_ARROW) {
+      changeVolume(-volStep);
+    }
+    return false;
+  }
+
+  if (!isRunning) return;
+
+  if (key === 'a' || keyCode === LEFT_ARROW) {
+    current = left;
+  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
+    current = right;
+  } else if (key === 'w' || keyCode === UP_ARROW) {
+    current = up;
+  } else if (key === 's' || keyCode === DOWN_ARROW) {
+    current = down;
+  }
+}
+
 function drawPlayer() {
   let direction;
-  switch(player.getDirection()) {
+  switch (player.getDirection()) {
     case 'down':
       direction = down;
       break;
@@ -131,7 +168,7 @@ function drawPlayer() {
       direction = right;
       break;
   }
-  image(direction , player.getX(), player.getY(), spriteWidth, spriteHeight);
+  image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
 }
 
 function drawWalls() {
