@@ -1,3 +1,4 @@
+let start_background;
 const characters = [
     {
         name: 'Fire',
@@ -20,4 +21,6 @@ function preload() {
         c.up = loadImage(c.files[2]);
         c.right = loadImage(c.files[3]);
     }
+
+    start_background = loadImage('src/art/Start_Background.png');
 }

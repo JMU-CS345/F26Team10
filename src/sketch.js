@@ -28,11 +28,11 @@ async function setup() {
 
 
 function showStartScreen() {
-  background(220);
+  image(start_background, 0, 0);
 
   textSize(70);
   textAlign(CENTER, CENTER);
-  fill(0);
+  fill(255);
 
   text('MageQuest', width / 2, height / 2);
   button = createButton('PLAY');
