@@ -6,7 +6,7 @@ let volDown;
 let volUp;
 let exitButton;
 
-const x = 200;
+const x = 600;
 const y = 200;
 const w = 400;
 const h = 400;
@@ -31,19 +31,19 @@ function openSettings() {
   
   volDown = createButton('▼');
   volDown.size(40, 40);
-  volDown.position(320, 340);
+  volDown.position(720, 340);
   volDown.attribute('aria-label', 'Decrease volume');
   volDown.mouseClicked(() => changeVolume(-volStep));
 
   volUp = createButton('▲');
   volUp.size(40, 40);
-  volUp.position(440, 340);
+  volUp.position(840, 340);
   volUp.attribute('aria-label', 'Increase volume');
   volUp.mouseClicked(() => changeVolume(volStep));
 
   exitButton = createButton('RESTART');
   exitButton.size(200, 40);
-  exitButton.position(300, 500);
+  exitButton.position(700, 500);
   exitButton.mouseClicked(exitToStart);
 
   closeButton.elt.focus();

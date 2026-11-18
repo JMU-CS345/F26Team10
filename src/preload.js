@@ -1,4 +1,5 @@
 let wallSprite;
+let backgroundSprite;
 
 const characters = [
     {
@@ -23,4 +24,5 @@ function preload() {
         c.right = loadImage(c.files[3]);
     }
     wallSprite = loadImage('src/art/Wall_Sprite.png');
+    backgroundSprite = loadImage('src/art/Dungeon_Background.png');
 }
