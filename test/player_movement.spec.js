@@ -2,13 +2,15 @@ describe("Player movement", function () {
 
   let player;
   let playerController;
+  let wallArray;
   beforeEach(function() {
     loaded = true;
 
     player = new Player(125, 125, 5, 10);
     playerController = new PlayerController(player);
     player.setSprite(characters[0].files[0]);
-
+    wallArray = [];
+    
   });
 
 

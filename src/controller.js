@@ -41,19 +41,52 @@ class PlayerController {
     checkCollision(key) {
         switch (key) {
             case 'a':
-                return this.playerX - gridDivision > 0;
+                return this.playerX - gridDivision > 0 && !this.wallCollision('a');
 
             case 'd':
-                return this.playerX + gridDivision < mapSize;
+                return this.playerX + gridDivision < mapSize && !this.wallCollision('d');
 
             case 's':
-                return this.playerY + gridDivision < mapSize;
+                return this.playerY + gridDivision < mapSize && !this.wallCollision('s');
 
             case 'w':
-                return this.playerY - gridDivision > 0;
+                return this.playerY - gridDivision > 0 && !this.wallCollision('w');
 
             default:
                 return false;
         }
+    }
+
+    wallCollision(key) {
+        let nextX = this.playerX;
+        let nextY = this.playerY;
+
+        switch (key) {
+            case 'a':
+                nextX -= gridDivision;
+                break;
+
+            case 'd':
+                nextX += gridDivision;
+                break;
+
+            case 's':
+                nextY += gridDivision;
+                break;
+
+            case 'w':
+                nextY -= gridDivision;
+                break;
+
+            default:
+                return false;
+        }
+
+        for (let wall of wallArray) {
+            if (wall.getX() === nextX && wall.getY() === nextY) {
+                return true;
+            }
+        }
+        return false;
     }
 }

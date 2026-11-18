@@ -1,4 +1,7 @@
+let wallSprite;
+let backgroundSprite;
 let start_background;
+
 const characters = [
     {
         name: 'Fire',
@@ -21,6 +24,8 @@ function preload() {
         c.up = loadImage(c.files[2]);
         c.right = loadImage(c.files[3]);
     }
-
+  
+    wallSprite = loadImage('src/art/Wall_Sprite.png');
+    backgroundSprite = loadImage('src/art/Dungeon_Background.png');
     start_background = loadImage('src/art/Start_Background.png');
 }

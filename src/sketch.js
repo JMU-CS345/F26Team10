@@ -1,5 +1,5 @@
 let loaded = false;
-const mapSize = 800;
+const mapSize = 1600;
 const gridDivision = 50;
 let button;
 let isRunning = false;
@@ -14,14 +14,15 @@ let spriteHeight;
 
 
 async function setup() {
-  createCanvas(mapSize, mapSize);
+  createCanvas(mapSize, mapSize/2);
   showStartScreen();
   
-  player = new Player(105, 101, 5, 10);
+  player = new Player(400, 400, 5, 10);
   playerController = new PlayerController(player);
 
-  player = new Player(105, 101, 5, 10);
-  playerController = new PlayerController(player);
+  for (let i = 0; i < 5; i++) {
+    wallArray[i] = new Wall(0 + (50 * i) , 0 + (50 * i));
+  }
 
   loaded = true;
 }
@@ -36,7 +37,7 @@ function showStartScreen() {
 
   text('MageQuest', width / 2, height / 2);
   button = createButton('PLAY');
-  button.position(380, 450);
+  button.position(780, 450);
   button.mouseClicked(startGame);
 }
 
@@ -48,7 +49,7 @@ function startGame() {
   for (let i = 0; i < characters.length; i++) {
     let b = createButton(characters[i].name);
     b.size(120, 40);
-    b.position(140 + i * 200, 500);
+    b.position(540 + i * 200, 500);
     b.mouseClicked(() => chooseCharacter(i));
     charButtons.push(b);
   }
@@ -81,10 +82,13 @@ function draw() {
     drawSelect();
   }
   if (isRunning) {
-    background(220);
-    drawGrid();
-    drawPlayer();
-    drawSettings();
+    if (loaded) {
+      drawBackground();
+      drawGrid();
+      drawPlayer();
+      drawWalls();
+      drawSettings();
+    }
   }
 }
 
@@ -99,7 +103,7 @@ function drawSelect() {
       let img = characters[i].down;
       let w = 80;
       let h = w * img.height / img.width;
-      image(img, 200 + i * 200 - w / 2, 350, w, h);
+      image(img, 600 + i * 200 - w / 2, 350, w, h);
     }
   }
 }
@@ -116,35 +120,6 @@ function drawGrid() {
   /* Horizontal lines */
   for (let i = 0; i < mapSize + 1; i += gridDivision) {
     line(0, i, mapSize, i);
-  }
-}
-
-
-function keyPressed() {
-  if (keyCode === ESCAPE) {
-    if (isRunning) toggleSettings();
-    return;
-  }
-
-  if (isRunning && isSettingsOpen) {
-    if (keyCode === UP_ARROW) {
-      changeVolume(volStep);
-    } else if (keyCode === DOWN_ARROW) {
-      changeVolume(-volStep);
-    }
-    return false;
-  }
-
-  if (!isRunning) return;
-
-  if (key === 'a' || keyCode === LEFT_ARROW) {
-    current = left;
-  } else if (key === 'd' || keyCode === RIGHT_ARROW) {
-    current = right;
-  } else if (key === 'w' || keyCode === UP_ARROW) {
-    current = up;
-  } else if (key === 's' || keyCode === DOWN_ARROW) {
-    current = down;
   }
 }
 
@@ -165,4 +140,14 @@ function drawPlayer() {
       break;
   }
   image(direction, player.getX(), player.getY(), spriteWidth, spriteHeight);
+}
+
+function drawWalls() {
+  for (wall of wallArray) {
+    image(wall.getSprite(), wall.getX(), wall.getY());
+  }
+}
+
+function drawBackground() {
+  image(backgroundSprite, 0, 0);
 }
